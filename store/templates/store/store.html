@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Store</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        .container {
+            margin-top: 40px;
+            display: block;
+            text-align: center;
+        }
+        .container p{
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h1><a href="{% url 'cart' %}">Cart</a></h1>
+
+<div class="container">
+    {% for product in products %}
+        <p>
+            <a href="{{product.get_absolute_url}}">{{product.name}}</a>
+            <a href="{{ product.get_add_to_cart }}">Add to cart</a>
+            R${{product.price}}
+        </p>
+    {% endfor %}
+
+    <ul class="messages">
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+</div>
+
+
+
+</body>
+</html>

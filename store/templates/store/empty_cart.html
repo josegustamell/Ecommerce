@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart</title>
+    <style>
+
+        h1{
+            margin-left: 675px;
+        }
+
+        .container {
+            margin-top: 50px;
+            margin-left: 450px;
+        }
+
+        td {
+            padding-left: 10px;
+        }
+
+        #total {
+            position: absolute;
+            text-align: center;
+            right: 450px;
+            top: 220px;
+        }
+        
+        #checkout-button {
+            position: relative;
+            left: 670px;
+            top: 100px;
+            padding: 10px;
+            background-color: black;
+            color: #fff;
+            text-decoration: none;
+            text-decoration: none;
+        }
+        
+        #message {
+            margin-left: 500px;
+            margin-top: 100px;;
+
+        }
+    </style>
+</head>
+<body>
+<h1>Cart</h1>
+
+<h1><a href="{% url 'store' %}">Store</a></h1>
+
+<br>
+<br>
+<br>
+<div class="container">
+    <h3 id="total">Total<br>0</h3>
+
+    <table>
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+         <!-- Aqui eu acesso tudo que tá no products do meu Order, ou seja, os OrderItem -->
+            <tr>
+                <td></td> <!-- Dentro dos products do meu order, que é o OrderItem, eu tenho product em si, que é esse que acesso -->
+                <td></td>
+                <td>
+                    
+                </td>
+                <td>
+                    
+                </td>
+            </tr>
+
+    </tbody>
+
+
+</table>
+</div>
+
+<p id="message">You do not have items in your cart. <a href="{% url 'store' %}">Try add new items.</a></p>
+    {% if messages %}
+        <ul class="messages">
+        {% for message in messages %}
+            <li>{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    {{product}}
+</body>
+</html>

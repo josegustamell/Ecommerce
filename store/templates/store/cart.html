@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        h1{
+            margin-left: 675px;
+        }
+
+        .container {
+            margin-top: 50px;
+            margin-left: 450px;
+        }
+
+        td {
+            padding-left: 10px;
+        }
+
+        #total {
+            position: absolute;
+            text-align: center;
+            right: 450px;
+            top: 220px;
+        }
+        
+        #checkout-button {
+            position: relative;
+            left: 670px;
+            top: 100px;
+            padding: 10px;
+            background-color: black;
+            color: #fff;
+            text-decoration: none;
+            text-decoration: none;
+        }
+
+        
+
+    </style>
+</head>
+<body>
+<h1>Cart</h1>
+
+<h1><a href="{% url 'store' %}">Store</a></h1>
+
+<br>
+<br>
+<br>
+<div class="container">
+    <h3 id="total">Total<br>R$ {{order.get_total}} </h3>
+    <table>
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for order_item in order.products.all %} <!-- Aqui eu acesso tudo que tá no products do meu Order, ou seja, os OrderItem -->
+            <tr>
+                <td>{{order_item.product.name}}</td> <!-- Dentro dos products do meu order, que é o OrderItem, eu tenho product em si, que é esse que acesso -->
+                <td>R${{order_item.product.price}}</td>
+                <td>
+                    <a href="{% url 'remove-single-product' order_item.product.slug %}">Remove</a>
+                    {{order_item.quantity}}
+                    <a href="{% url 'add-product-in-cart' order_item.product.slug %}">Add</a>
+                </td>
+                <td>
+                    R${{ order_item.get_total_product_price }} <!-- Método do meu OrderItem (porque acessa o atributo products do Order, que é filho do OrderItem) que retorna o preço total dos produtos.-->
+                    <a href="{% url 'remove-from-cart' order_item.product.slug %}">Delete</a>
+                </td>
+            </tr>
+    </tbody>
+    {% empty %}
+    <p id="message">You do not have items in your cart. <a href="{% url 'store' %}">Try add new items.</a></p>
+    {% endfor %}
+</table>
+
+</div>
+
+
+<a id="checkout-button" href="{% url 'address' %}">Checkout</a>
+
+    {% if messages %}
+        <ul class="messages">
+        {% for message in messages %}
+            <li>{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    {{product}}
+
+
+</body>
+</html>

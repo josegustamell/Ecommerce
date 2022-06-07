@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout</title>
+</head>
+<body>
+
+{% load static %}
+
+<h1>Checkout</h1>
+<form method="post" action="">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Checkout</button>
+</form>
+
+<h1><a href="{% url 'cart' %}">Cart</a></h1>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+<script src="{% static 'js/order-form.js' %}"></script>
+
+</body>
+</html>

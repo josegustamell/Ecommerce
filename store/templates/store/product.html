@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{{product.name}}
+R$ {{product.price}}
+<a href="{{ product.get_add_to_cart }}">Add to cart</a>
+<a href="{% url 'store' %}">Store</a>
+<a href="{% url 'cart' %}">Cart</a>
+
+
+{{url}}
+
+</body>
+</html>
