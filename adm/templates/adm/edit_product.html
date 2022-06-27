@@ -1,0 +1,32 @@
+<h3>Edit {{product.name}}</h3>
+
+<form method="post" action="">
+    {% csrf_token %}
+    <label>Name</label>
+    {{form.name}}
+    <label>Price</label>
+    {{form.price}}
+    <label>Description</label>
+    {{form.description}}
+    <label>Available</label>
+    {{form.available}}
+    <label>Category</label>
+    {{form.category}}
+    
+    
+    <!--{{form.errors}} <<<<<<<- ISSO AQUI SALVA VIDAS ESTRESSES E TEMPOS PERDIDOS MEU DEUS OBRIGADO -->
+    
+
+    <input type="submit">
+    
+</form>
+
+<br>
+<br>
+<br>
+<a href="{% url 'adm:home'%}">Home</a>
+<br>
+<br>
+<a href="{% url 'adm:products' %}">All products</a>
+<br>
+<br>

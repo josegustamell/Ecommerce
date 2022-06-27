@@ -1,0 +1,10 @@
+{% for product in products %}
+    {{product.name}}
+    <a href="{% url 'adm:edit_product' product.slug %}">See</a>
+    Sold: R$: {{product.sold}}
+{% endfor %}
+
+<br>
+<br>
+<br>
+<a href="{% url 'adm:home' %}">Home</a>

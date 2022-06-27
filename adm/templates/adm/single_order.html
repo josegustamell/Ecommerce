@@ -1,0 +1,55 @@
+<h3>Customer</h3>
+{{order.user}}
+
+<h3>Shipping address</h3>
+<label>CEP</label>
+{{order.shipping_address.postal_code}}
+{{order.shipping_address.state}}
+{{order.shipping_address.city}}
+{{order.shipping_address.district}}
+{{order.shipping_address.address}}
+
+{{order.shipping_address.number}}
+{{order.shipping_address.complement}}
+
+
+
+<h3>Products</h3>
+{% for product in order.products.all %}
+    {{product.product.name}}  <!--product (nome da variável do for).product(acessando a classe product que eu "herdei").name (atributo da classe que eu acessei)-->
+    {{product.product.sold}}
+{% endfor %}
+
+<h3>Date ordered</h3>
+{{order.date_ordered}}
+
+<h4>Delivered</h4>
+
+<form method="post" action="">
+    {% csrf_token %}
+
+    {% if order.delivered == False %}
+        <input name="checkbox-true" type="checkbox"> 
+    {% else %}
+        <input type="checkbox" checked> 
+    {% endif %}
+
+    <label for="checkbox">Delivered</label>
+    <br>
+    <br>
+    <input type="submit">
+</form>
+
+<br>
+<br>
+<br>
+<a href="{% url 'adm:home'%}">Home</a>
+<br>
+<br>
+<a href="{% url 'adm:admin_orders' %}">All orders</a>
+<br>
+<br>
+<a href="{% url 'adm:orders_delivered' %}">Delivered orders</a>
+<br>
+<br>
+<a href="{% url 'adm:orders_undelivered' %}">Undelivered orders</a>

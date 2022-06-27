@@ -1,3 +1,3 @@
 {% for order in orders %}    
-    <a href="{% url 'detail_order' order.id %}">{{order.id}}</a>
+    <a href="{% url 'store:detail-order' order.id %}">{{order.id}}</a>
 {% endfor %}

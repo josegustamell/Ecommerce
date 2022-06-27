@@ -1,0 +1,33 @@
+<form method="post" action="">
+    {% csrf_token %}
+    <label>Name</label>
+    {{form.name}}
+    <label>Price</label>
+    {{form.price}}
+    <label>Description</label>
+    {{form.description}}
+    <label>Available</label>
+    {{form.available}}
+    <label>Category</label>
+    {{form.category}}
+
+    <input type="submit">
+</form>
+
+
+
+<!--<label>Name</label>
+    <input type="text" name="name">
+
+    <label>Price</label>
+    <input type="number" name="price">
+
+    <label>Description</label>
+    <input type="text" name="description">
+
+    <label>Category</label>
+    <select name="category">
+        {% for category in categories %}
+            <option value='{{category}}'>{{category}}</option>
+        {% endfor %}
+    </select>-->

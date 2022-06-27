@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'store.apps.StoreConfig',
+    'adm.apps.AdmConfig',
     'localflavor'
 ]
 
@@ -132,3 +133,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STRIPE_PUBLIC_KEY = "pk_test_51L5CXaCiUyIhNJjSDrvUXGvbTGZzDGwbKjzknvF0Z0odhvq73tfdaMNKdINtO9LFGNLCXSSxIkv0CpwRdrEBVVwK00KCEKB5i8"
 STRIPE_SECRET_KEY = "sk_test_51L5CXaCiUyIhNJjSQmuBKuB7lVyuAUN7S6GLyWXMbymXFMsTxXFNX2PQbAEm30FSk1c2hZQpDAGT3NWBZPhWBpcr004ALFaHRK"
+STRIPE_WEBHOOK_SECRET = "whsec_d0cf0dad189b36039e991a3a07cb84d0195d7794c258b1179d4a2acab2749842"
+

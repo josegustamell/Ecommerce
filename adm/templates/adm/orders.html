@@ -1,0 +1,15 @@
+{% for order in orders %}
+    {{order}}
+    <a href="{% url 'adm:single_order' order.id %}">See</a>
+{% endfor %}
+
+<br>
+<br>
+<br>
+<a href="{% url 'adm:home' %}">Home</a>
+<br>
+<br>
+<a href="{% url 'adm:orders_delivered' %}">Delivered orders</a>
+<br>
+<br>
+<a href="{% url 'adm:orders_undelivered' %}">Undelivered orders</a>

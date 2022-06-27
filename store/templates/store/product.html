@@ -9,8 +9,8 @@
 {{product.name}}
 R$ {{product.price}}
 <a href="{{ product.get_add_to_cart }}">Add to cart</a>
-<a href="{% url 'store' %}">Store</a>
-<a href="{% url 'cart' %}">Cart</a>
+<a href="{% url 'store:store' %}">Store</a>
+<a href="{% url 'store:cart' %}">Cart</a>
 
 
 {{url}}

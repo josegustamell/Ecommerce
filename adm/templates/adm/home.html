@@ -1,0 +1,56 @@
+<br>
+<label>Total Orders</label>
+{{total_orders}}
+<br>
+<br>
+<label>Orders Delivered</label>
+{{delivered_orders}}
+<br>
+<br>
+<label>Orders Pending</label>
+{{undelivered_orders}}
+<br>
+<br>
+<br>
+
+<h3>Last five orders</h3>
+{% for order in last_five_orders %}
+    Order {{order.id}}
+    <br>
+    Products
+    <br> 
+    {% for product in order.products.all %}
+        {{product.product.name}}
+        {{product.quantity}}
+        <br>
+    {% endfor %}
+    <a href="{% url 'adm:single_order' order.id %}">Update</a>
+    <br>
+    <br>
+{% endfor %}
+
+
+<h3>Top selling products</h3>
+{% for product in top_selling_products %}
+    {{product.name}} {{product.sold}}
+    <a href="{% url 'adm:edit_product' product.slug %}">See</a>
+{% endfor %}
+<br>
+<br>
+<br>
+
+<a href="{% url 'adm:new_product' %}">New Product</a>
+<br>
+<br>
+<a href="{% url 'adm:products' %}">All products</a>
+<br>
+<br>
+<a href="{% url 'adm:admin_orders' %}">All orders</a>
+<br>
+<br>
+<a href="{% url 'adm:orders_delivered' %}">Delivered orders</a>
+<br>
+<br>
+<a href="{% url 'adm:orders_undelivered' %}">Undelivered orders</a>
+<br>
+<br>

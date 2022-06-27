@@ -20,7 +20,7 @@
 </head>
 <body>
 
-<h1><a href="{% url 'cart' %}">Cart</a></h1>
+<h1><a href="{% url 'store:cart' %}">Cart</a></h1>
 
 <div class="container">
     {% for product in products %}
@@ -36,8 +36,12 @@
             <li>{{ message }}</li>
         {% endfor %}
     </ul>
+    
 </div>
 
+<div>
+    <a href="{% url 'store:orders-completed' %}">Orders</a>
+</div> 
 
 
 </body>
