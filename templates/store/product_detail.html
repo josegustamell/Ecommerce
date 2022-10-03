@@ -1,0 +1,109 @@
+{% extends 'store/main.html' %}
+
+{% load static %}
+
+
+{% block content %}
+<div id="impossivel">
+    <div class="container">
+        <main class="pt-5">
+            <div class="row g-3">
+                <div class="col-md-5 col-lg-5 order-md-first bg-light">
+                    <img class="img-fluid mx-auto d-block mb-5" width="300px" height="300px" alt="Responsive image"
+                        src="{{ product.image.url }}">
+                </div>
+                <div class="col-md-7 col-lg-7 ps-md-3 ps-lg-5">
+                    <h1 class="mb-0 h4">{{ product.name }}</h1>
+
+                    <p>{{ product.description|slice:":355" }}...</p>
+                    <div class="border">
+                        <div class="col border-bottom">
+                            <div class="row p-3">
+                                <div class="col-6">Hardback</div>
+                                <div class="col-6 text-end"><span class="h4 fw-bold">R$ {{ product.price }}</span></div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="row p-3">
+                                <div class="col-6 text-end">
+
+                                    <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
+                                        <label class="btn btn-dark active">
+                                            <input type="radio" name="sizes" value="P"> P
+                                        </label>
+                                        <label class="btn btn-dark">
+                                            <input type="radio" name="sizes" value="M"> M
+                                        </label>
+                                        <label class="btn btn-dark">
+                                            <input type="radio" name="sizes" value="G"> G
+                                        </label>
+                                        <label class="btn btn-dark">
+                                            <input type="radio" name="sizes" value="GG"> GG
+                                        </label>
+                                    </div>
+
+                                    
+                                    <input type="number" class="text-center" value="1" id="product-quantity">
+                                    
+
+                                    <button type="button" id="add-button" value="{{ product.id }}" style="border: 1px solid #333;"
+                                        class="btn btn-light mt-4">Add to basket</button>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<script>
+    $(document).on('click', '#add-button', function (e) {
+        e.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: '{% url "cart:add_to_cart" %}',
+            data: {
+                productid: $('#add-button').val(),
+                productquantity: $('#product-quantity').val(),
+                productsize: $('input[name="sizes"]:checked').val(),
+                csrfmiddlewaretoken: "{{csrf_token}}",
+                action: 'post'
+            },
+            success: function (json) {
+                document.getElementById("cart-quantity").innerHTML = json.quantity
+
+            },
+            error: function (xhr, errmsg, err) { }
+        });
+    })
+</script>
+
+{% endblock %}
+
+
+
+
+
+<!--
+    <button type="button" id="size-button" value="P" class="btn btn-dark">P</button>
+    <button type="button" id="size-button" value="M" class="btn btn-dark">M</button>
+    <button type="button" id="size-button" value="G" class="btn btn-dark">G</button>
+    <button type="button" id="size-button" value="GG" class="btn btn-dark">GG</button>
+
+
+    <label for="select" class="ml-4">Qty</label>
+    <select id="select">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+    </select>
+
+$('#select option:selected').text(),
+
+-->

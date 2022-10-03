@@ -1,0 +1,56 @@
+h5 {
+    color: black;
+}
+
+h1 {
+    text-align: center;
+    color: #26333c;
+}
+
+.d-block {
+    height: 500px;
+}
+
+.card {
+    background: #fff;
+    border: 1px solid #d4b7ac;
+    border-radius: 2px;
+    margin-bottom: 2rem;
+    min-width: 250px;
+    max-width: 350px;
+    padding: 1rem 0 1rem 0 !important;
+}
+
+.card-text {
+    color: #333;
+    text-align: left;
+}
+
+.card-title {
+    color: #723724;
+    font-weight: 400;
+}
+
+.card-img-top{
+    border: 1px solid #fbe3da;
+    border-radius: 3px;
+    width: 220px;
+    height: 373px;
+    object-fit: cover;
+}
+
+.card-subtitle {
+    color: #723724;
+    font-weight: 400;
+}
+
+.product-link:hover {
+    text-decoration: none;
+}
+
+
+hr{
+    height: 0.5px;
+    background-color: #cead9a;
+    border: none;
+}

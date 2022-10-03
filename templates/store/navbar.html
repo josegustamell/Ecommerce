@@ -1,0 +1,71 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/navbar.css' %}">
+
+<nav class="navbar navbar-white bg-white navbar-expand-lg sticky-top">
+    <a class="navbar-brand" href="{% url 'store:store' %}">Ateliê 
+        Piedoso</a> 
+     <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span>
+     </button>
+
+     <div class="collapse navbar-collapse" id="navbarNav">
+       
+        <ul class="navbar-nav mr-5">
+            <li class="nav-item active">
+                <a class="nav-link" href="">Vestidos</a>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="">Arte Sacra</a>
+            </li>
+        </ul>
+
+        <form class="form-inline mx-auto">
+            <input class="form-control mr-lg-2 mr-2" type="search" placeholder="Digite seu produto..." aria-label="Search">
+            <button class="btn btn-dark my-2 mr-sm-5" type="submit">Pesquisar</button>
+          </form>
+        
+        {% if request.user.is_authenticated %}
+        <span class="navbar-text">
+            <a class="nav-link" href=""><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-card-checklist" viewBox="0 0 16 16">
+                <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+                <path d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0zM7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z"/>
+              </svg> 
+              Meus Pedidos</a>
+        </span>
+        
+        <span class="navbar-text"><a class="nav-link" href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+              </svg>
+              Minha Conta</a></span>
+        {% else %}
+        <span class="navbar-text">
+            <a class="nav-link" href="">Login</a>
+        </span>
+        
+        <span class="navbar-text ml-3 mr-2"><a class="nav-link" href="">Criar conta</a></span>
+        {% endif %}
+
+       <span class="navbar-text">
+        <a type="button" role="button" class="btn btn-outline-dark" href="" style="border: none;">
+            {% with total_quantity=cart|length %}
+            <div id="cart-quantity" class="d-inline-flex">
+                {% if total_quantity > 0 %}
+                    {{ total_quantity }}
+                {% else %}
+                0
+                {% endif %}
+            </div>
+            {% endwith %}
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cart2" viewBox="0 0 16 16">
+                <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
+              </svg>
+              Carrinho
+        </a>
+        </span>
+         
+    </div>
+   </nav>

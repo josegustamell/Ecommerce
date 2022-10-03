@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ateliê Piedoso</title>
+</head>
+<body>
+
+{% extends 'store/main.html' %}
+    
+{% block content %}
+
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/store.css' %}">
+
+<br>
+
+    <h1>Destaques</h1>
+    <br>
+    <div class="container mt-4">
+      <div class="row ">
+        {% for product in highlights %}
+        <div class="col-lg-4">  
+          <a class="product-link" href="{% url 'store:product_detail' product.slug %}">
+          <div class="card rounded shadow p-3 mb-5 bg-white rounded mx-auto mb-1"> 
+            <img class="card-img-top mx-auto mt-3" src="{{ product.image.url }}">
+            <div class="card-body text-center">
+              <h5 class="card-title">R$ {{ product.price }}</h5>
+              <p class="card-subtitle">{{ product.name }}</p>
+              <p class="card-text text-center mb-0 .text-black-50"><small class="">em 2x</strong> de R$ <!-- ver esse strong e small -->
+                  <strong>57,47</strong></small></p> <!-- Mudar esse Strong -->
+                <p class="card-text text-center mt-0"><small><strong>R$ 210,00</strong> via Boleto Bancário</small></p>    
+            </div>
+          </div> 
+          </a>       
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    
+    <h1 class="mt-2">Lançamentos</h1>
+    <br>
+    <div class="container mt-4">
+      <div class="row">
+        {% for product in releases %}
+        <div class="col-lg-4">  
+          <a class="product-link" href="{% url 'store:product_detail' product.slug %}">
+            <div class="card rounded shadow p-3 mb-5 bg-white rounded mx-auto mb-1"> 
+            <img class="card-img-top mx-auto mt-3" src="{{ product.image.url }}">
+            <div class="card-body text-center">
+              <h5 class="card-title">R$ {{ product.price }}</h5>
+              <p class="card-subtitle">{{ product.name }}</p>
+              <p class="card-text text-center mb-0 .text-black-50"><small class="">em 2x</strong> de R$ <!-- ver esse strong e small -->
+                  <strong>57,47</strong></small></p> <!-- Mudar esse Strong -->
+                <p class="card-text text-center mt-0"><small><strong>R$ 210,00</strong> via Boleto Bancário</small></p>    
+            </div>
+          </div>   
+          </a>     
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+<!-- Tem como colocar isso tudo em um for categories, mas vamos testar isso separadamente em outro projeto. -->
+    <h1 class="mt-2">Vestidos</h1>
+    <br>
+    <div class="container mt-4">
+      <div class="row">
+        {% for product in dresses %}
+        <div class="col-lg-4">  
+          <a class="product-link" href="{% url 'store:product_detail' product.slug %}">
+            <div class="card rounded shadow p-3 mb-5 bg-white rounded mx-auto mb-1"> 
+            <img class="card-img-top mx-auto mt-3" src="{{ product.image.url }}">
+            <div class="card-body text-center">
+              <h5 class="card-title">R$ {{ product.price }}</h5>
+              <p class="card-subtitle">{{ product.name }}</p>
+              <p class="card-text text-center mb-0 .text-black-50"><small class="">em 2x</strong> de R$ <!-- ver esse strong e small -->
+                  <strong>57,47</strong></small></p> <!-- Mudar esse Strong -->
+                <p class="card-text text-center mt-0"><small><strong>R$ 210,00</strong> via Boleto Bancário</small></p>    
+            </div>
+          </div>
+          </a>        
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <h1 class="mt-2">Saias</h1>
+    <br>
+    <div class="container mt-4">
+      <div class="row">
+        {% for product in skirts %}
+        <div class="col-lg-4">  
+          <a class="product-link" href="{% url 'store:product_detail' product.slug %}">
+            <div class="card rounded shadow p-3 mb-5 bg-white rounded mx-auto mb-1"> 
+            <img class="card-img-top mx-auto mt-3" src="{{ product.image.url }}">
+            <div class="card-body text-center">
+              <h5 class="card-title">R$ {{ product.price }}</h5>
+              <p class="card-subtitle">{{ product.name }}</p>
+              <p class="card-text text-center mb-0 .text-black-50"><small class="">em 2x</strong> de R$ <!-- ver esse strong e small -->
+                  <strong>57,47</strong></small></p> <!-- Mudar esse Strong -->
+                <p class="card-text text-center mt-0"><small><strong>R$ 210,00</strong> via Boleto Bancário</small></p>    
+            </div>
+          </div>        
+        </div>
+       
+       </a> {% endfor %}
+      </div>
+    </div>
+
+    <h1 class="mt-2">Blusas</h1>
+    <br>
+    <div class="container mt-4">
+      <div class="row">
+        {% for product in blouses %}
+        <div class="col-lg-4">  
+          <a class="product-link" href="{% url 'store:product_detail' product.slug %}">
+            <div class="card rounded shadow p-3 mb-5 bg-white rounded mx-auto mb-1"> 
+            <img class="card-img-top mx-auto mt-3" src="{{ product.image.url }}">
+            <div class="card-body text-center">
+              <h5 class="card-title">R$ {{ product.price }}</h5>
+              <p class="card-subtitle">{{ product.name }}</p>
+              <p class="card-text text-center mb-0 .text-black-50"><small class="">em 2x</strong> de R$ <!-- ver esse strong e small -->
+                  <strong>57,47</strong></small></p> <!-- Mudar esse Strong -->
+                <p class="card-text text-center mt-0"><small><strong>R$ 210,00</strong> via Boleto Bancário</small></p>    
+            </div>
+          </div>        
+        </div>
+       
+       </a> {% endfor %}
+      </div>
+    </div>
+
+    <h1 class="mt-2">Arte Sacra</h1>
+    <br>
+    <div class="container mt-4">
+      <div class="row">
+        {% for product in sacred_art %}
+        <div class="col-lg-4">  
+          <a class="product-link" href="{% url 'store:product_detail' product.slug %}">
+            <div class="card rounded shadow p-3 mb-5 bg-white rounded mx-auto mb-1"> 
+            <img class="card-img-top mx-auto mt-3" src="{{ product.image.url }}">
+            <div class="card-body text-center">
+              <h5 class="card-title">R$ {{ product.price }}</h5>
+              <p class="card-subtitle">{{ product.name }}</p>
+              <p class="card-text text-center mb-0 .text-black-50"><small class="">em 2x</strong> de R$ <!-- ver esse strong e small -->
+                  <strong>57,47</strong></small></p> <!-- Mudar esse Strong -->
+                <p class="card-text text-center mt-0"><small><strong>R$ 210,00</strong> via Boleto Bancário</small></p>    
+            </div>
+          </div>        
+        </div>
+       
+       </a> {% endfor %}
+      </div>
+    </div>
+
+    <h1 class="mt-2">Rosários</h1>
+    <br>
+    <div class="container mt-4">
+      <div class="row">
+        {% for product in rosaries %}
+        <div class="col-lg-4">  
+          <a class="product-link" href="{% url 'store:product_detail' product.slug %}">
+            <div class="card rounded shadow p-3 mb-5 bg-white rounded mx-auto mb-1"> 
+            <img class="card-img-top mx-auto mt-3" src="{{ product.image.url }}">
+            <div class="card-body text-center">
+              <h5 class="card-title">R$ {{ product.price }}</h5>
+              <p class="card-subtitle">{{ product.name }}</p>
+              <p class="card-text text-center mb-0 .text-black-50"><small class="">em 2x</strong> de R$ <!-- ver esse strong e small -->
+                  <strong>57,47</strong></small></p> <!-- Mudar esse Strong -->
+                <p class="card-text text-center mt-0"><small><strong>R$ 210,00</strong> via Boleto Bancário</small></p>    
+            </div>
+          </div>        
+        </div>
+       </a> {% endfor %}
+      </div>
+    </div>
+  
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
