@@ -1,0 +1,51 @@
+{% load static %}
+
+
+
+<div class="card mb-3 border-0 " id="product-item--{{ item.product.id }}">
+    <div class="row g-0">
+        <div class="col-md-2 d-none d-md-block">
+            <img class="img-fluid mx-auto d-block" alt="Responsive image" src="{{ item.product.image.url }}" />
+        </div>
+        <div class="col-md-10 ps-md-3">
+            <div class="card-body p-1">
+                <a class="text-decoration-none text-reset" href="">
+                    <p class="card-text pb-3">{{item.product.name}}</p>
+                </a>
+                
+                <label for="#product-quantity">Quantidade</label>
+
+                <button type="button" hx-post="{% url 'cart:add_quantity' %}" 
+                        hx-vals='{"productid": "{{ item.product.id }}" }' 
+                        hx-target="#product-item--{{ item.product.id }}"
+                        hx-swap="outerHTML"
+                        id="add-quantity" class="btn btn-dark add-quantity"
+                        style="color: white;">+</button>
+
+                <span style="padding-inline: 10px;">{{item.quantity}}</span>
+
+                <button type="button" hx-post="{% url 'cart:remove_quantity' %}" 
+                        hx-vals='{"productid": "{{ item.product.id }}" }' 
+                        hx-target="#product-item--{{ item.product.id }}"
+                        hx-swap="outerHTML"
+                        id="remove-quantity" class="btn btn-dark remove-quantity"
+                        style="color: white;">-</button>
+
+
+                <button type="button" 
+                        hx-post="{% url 'cart:delete' %}" 
+                        hx-vals='{"productid": "{{ item.product.id }}" }' 
+                        hx-target="#product-item--{{ item.product.id }}"
+                        hx-swap="outerHTML"
+                        id="delete-button" class="btn btn-danger delete-button" 
+                        style="color: white;">Deletar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.body.addEventListener('htmx:configRequest', (event) => {
+    event.detail.headers['X-CSRFToken'] = '{{ csrf_token }}';
+    })
+</script>

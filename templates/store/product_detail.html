@@ -4,7 +4,7 @@
 
 
 {% block content %}
-<div id="impossivel">
+
     <div class="container">
         <main class="pt-5">
             <div class="row g-3">
@@ -42,15 +42,21 @@
                                         </label>
                                     </div>
 
+                                    <div class="row p-3">
+                                        <button type="button" class="btn btn-dark d-inline-block " onclick="removeQuantity()">-</button>
+                                        <input type="number" class="text-center d-inline-block mx-1" value="1" id="product-quantity" name="product-quantity" style="max-width: 50px;">
+                                        <button type="button" class="btn btn-dark" onclick="addQuantity()">+</button>
+                                    </div>
                                     
-                                    <input type="number" class="text-center" value="1" id="product-quantity">
-                                    
 
-                                    <button type="button" id="add-button" value="{{ product.id }}" style="border: 1px solid #333;"
-                                        class="btn btn-light mt-4">Add to basket</button>
-
-
-
+                                    <button type="button" 
+                                            hx-post="{% url 'cart:add_to_cart' %}" 
+                                            hx-vals='{ "productid": "{{ product.id }}" }' 
+                                            hx-include="input[name='product-quantity'], input[name='sizes']:checked" 
+                                            hx-target="#cart-quantity" 
+                                            hx-swap="outerHTML" 
+                                            id="add-button" value="{{ product.id }}" style="border: 1px solid #333;"
+                                            class="btn btn-light mt-4">Add to basket</button>
                                 </div>
                             </div>
                         </div>
@@ -59,51 +65,13 @@
             </div>
         </main>
     </div>
-</div>
 
-<script>
-    $(document).on('click', '#add-button', function (e) {
-        e.preventDefault();
-        $.ajax({
-            type: 'POST',
-            url: '{% url "cart:add_to_cart" %}',
-            data: {
-                productid: $('#add-button').val(),
-                productquantity: $('#product-quantity').val(),
-                productsize: $('input[name="sizes"]:checked').val(),
-                csrfmiddlewaretoken: "{{csrf_token}}",
-                action: 'post'
-            },
-            success: function (json) {
-                document.getElementById("cart-quantity").innerHTML = json.quantity
 
-            },
-            error: function (xhr, errmsg, err) { }
-        });
-    })
+
+<script src="{% static 'js/product-detail.js' %}">
+    
 </script>
 
 {% endblock %}
 
 
-
-
-
-<!--
-    <button type="button" id="size-button" value="P" class="btn btn-dark">P</button>
-    <button type="button" id="size-button" value="M" class="btn btn-dark">M</button>
-    <button type="button" id="size-button" value="G" class="btn btn-dark">G</button>
-    <button type="button" id="size-button" value="GG" class="btn btn-dark">GG</button>
-
-
-    <label for="select" class="ml-4">Qty</label>
-    <select id="select">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-    </select>
-
-$('#select option:selected').text(),
-
--->
