@@ -17,7 +17,7 @@
   1. Clone project: git clone https://github.com/josegustamell/Ecommerce
   2. Acess the project: cd ecommerce
   3. Create virtual environment: virtualenv myenv
-  4. myenv\scripts\activate
+  4. myenv\Scripts\Activate
   5. pip install -r requirements.txt
   6. python manage.py runserver
 
