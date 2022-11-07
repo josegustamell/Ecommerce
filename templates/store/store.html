@@ -17,9 +17,10 @@
 
 <br>
 
+
     <h1>Destaques</h1>
     <br>
-    <div class="container mt-4">
+    <div class="container mt-2">
       <div class="row ">
         {% for product in highlights %}
         <div class="col-lg-4">  
@@ -29,7 +30,7 @@
             <div class="card-body text-center">
               <h5 class="card-title">R$ {{ product.price }}</h5>
               <p class="card-subtitle">{{ product.name }}</p>
-              <p class="card-text text-center mb-0 .text-black-50"><small class="">em 2x</strong> de R$ <!-- ver esse strong e small -->
+              <p class="card-text text-center mb-0"><small class="">em 2x</strong> de R$ <!-- ver esse strong e small -->
                   <strong>57,47</strong></small></p> <!-- Mudar esse Strong -->
                 <p class="card-text text-center mt-0"><small><strong>R$ 210,00</strong> via Boleto Bancário</small></p>    
             </div>
@@ -178,20 +179,10 @@
        </a> {% endfor %}
       </div>
     </div>
-  
+    {{ cart.get_total_price }}
 
+   
 {% endblock %}
-
-
-
-
-
-
-
-
-
-
-
 
 </body>
 </html>

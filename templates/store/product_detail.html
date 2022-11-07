@@ -57,6 +57,12 @@
                                             hx-swap="outerHTML" 
                                             id="add-button" value="{{ product.id }}" style="border: 1px solid #333;"
                                             class="btn btn-light mt-4">Add to basket</button>
+
+                                            {% if messages %}
+                                            {% for message in messages %}
+                                                {{ message }}
+                                            {% endfor %}
+                                            {% endif %}
                                 </div>
                             </div>
                         </div>
@@ -68,10 +74,13 @@
 
 
 
-<script src="{% static 'js/product-detail.js' %}">
-    
-</script>
+<script src="{% static 'js/product-detail.js' %}"></script>
 
+<script>
+    document.body.addEventListener('htmx:configRequest', (event) => {
+    event.detail.headers['X-CSRFToken'] = '{{ csrf_token }}';
+})
+</script>
 {% endblock %}
 
 

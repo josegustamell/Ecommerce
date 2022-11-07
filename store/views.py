@@ -1,6 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import *
-
+from .models import Category, Product, ProductImage
 
 def home(request):
     products = Product.objects.all()
@@ -24,3 +23,9 @@ def product_detail(request, slug):
     
     context = {'product': product}
     return render(request, 'store/product_detail.html', context)
+
+
+def category_page(request, pk):
+    category = get_object_or_404(Category, id=pk)
+    context = {'category': category}
+    return render(request, 'store/category-page.html', context)

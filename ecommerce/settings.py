@@ -39,7 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'store',
-    'cart'
+    'cart',
+    'accounts',
+    'checkout',
+    'localflavor'
 ]
 
 MIDDLEWARE = [
@@ -126,7 +129,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
-AUTH_USER_MODEL = 'store.MyUser'
+AUTH_USER_MODEL = 'accounts.MyUser'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')

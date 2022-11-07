@@ -1,9 +1,11 @@
-body {
+body, html {
     background-color: #b36b53;
+    margin: 0px;
 }
 
 .container{
     margin-top: 0px;
-    background-color: #fff; /* #f9f9f9 */
+    background-color: #FFF; /* #f9f9f9 */
+    
 
 }

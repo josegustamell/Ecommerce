@@ -1,6 +1,7 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import redirect, render, get_object_or_404
 from .cart import Cart
 from store.models import Product
+from django.contrib import messages
 
 
 def cart_summary(request):
@@ -11,7 +12,7 @@ def cart_summary(request):
 
 def add_to_cart(request):
     cart = Cart(request)    
-    if request.method == 'POST':
+    if request.method == 'POST':       
         product_id = int(request.POST.get('productid'))
         product_quantity = int(request.POST.get('product-quantity'))
         product_size = str(request.POST.get('sizes'))
@@ -81,6 +82,7 @@ def delete(request):
         response['HX-Trigger'] = 'update-cart-quantity'
         
         return response
+
 
 def hx_cart_quantity(request):
     return render(request, 'cart/partials/cart-quantity.html')

@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import Category, Product, ProductImage
+from accounts.models import MyUser, Address
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
@@ -22,5 +23,9 @@ class ProductAdmin(admin.ModelAdmin):
 @admin.register(ProductImage)
 class ProductImageAdmin(admin.ModelAdmin):
     pass
+
+admin.site.register(MyUser)
+admin.site.register(Address)
+
 
 

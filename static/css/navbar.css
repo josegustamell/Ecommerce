@@ -1,27 +1,29 @@
 .nav-link {
-    color: #333;
+    color: #000;
+}
+
+.navbar-text {
+    color: #000;
 }
 
 .nav-link:hover {
-    color: #333;
+    color: #000;
 }
 
 .navbar-brand {
-    color: #bd5d3c;
+    color: #b36b53;
     font-weight: light;
 }
 
 .navbar-brand:hover {
-    color: #bd5d3c;
+    color: #000;
 }
 
 p {
     font-size: large;
 }
 
-.btn-dark {
-    background-color: #333;
-    border: none;
-    
-}
+
+
+
 

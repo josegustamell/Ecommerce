@@ -1,0 +1,14 @@
+.form-group input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px white inset;
+
+}
+
+
+
+.form-control {
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1px solid #cead9a;
+    border-radius: 0;
+}

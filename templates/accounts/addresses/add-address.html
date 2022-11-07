@@ -1,0 +1,65 @@
+{% extends 'store/main.html' %}
+{% block content %}
+{% load static %}
+
+<style>
+    body,
+    html {
+
+        margin: 0;
+    }
+</style>
+
+<div class="container" style="max-width: 1000px; height: 100vh;">
+
+    <div class="col-12 text-center p-4">
+        <h2>Adicione um endereço de entrega</h2>
+    </div>
+
+
+
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-row justify-content-start">
+
+            <div class="form-group col-md-6">
+                <label for="cep">{{form.CEP.label}}</label>
+                {{form.CEP}}
+            </div>
+            <div class="form-group col-md-6">
+                <label for="address" a>{{form.address.label}}</label>
+                {{form.address}}
+            </div>
+
+
+            <div class="form-group col-md-4">
+                <label>{{form.district.label}}</label>
+                {{form.district}}
+            </div>
+
+            <div class="form-group col-md-4">
+                <label>{{form.city.label}}</label>
+                {{form.city}}
+            </div>
+            <div class="form-group col-md-4">
+                <label>{{form.state.label}}</label>
+                {{form.state}}
+            </div>
+
+            <div class="form-group">
+                <div class="form-check">
+
+                    {{form.default}}
+                    <label class="form-check-label" for="default-check">
+                        {{form.default.label}}
+                    </label>
+
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-dark mb-4">Salvar</button>
+    </form>
+
+
+</div>
+{% endblock %}

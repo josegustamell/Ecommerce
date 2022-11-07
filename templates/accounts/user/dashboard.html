@@ -1,0 +1,95 @@
+{% extends 'store/main.html' %}
+
+{% block content %}
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/dashboard.css' %}">
+
+    <div class="container pt-5" style="max-width: 1000px">
+      <div class="col-12">
+        <h1 class="h2">Minha Conta</h1>
+      </div>
+      <div class="col-12 d-flex justify-content-between">
+        <p style="font-size: 20px;"><small class="text-muted">Veja seus pedidos e detalhes pessoais</small></p>
+      </div>
+      <hr/>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-12 mx-auto">
+            <div class="card text">
+                <div class="card-header">
+                  <ul class="nav nav-pills card-header-pills">
+                    <li class="nav-item">
+                      <a class="nav-link active bg-dark" href="{% url 'accounts:account_dashboard' %}">Conta</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'accounts:account_orders' %}">Pedidos</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Lista de Desejos</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="card-body p-3">
+                  <div class="card-deck">
+                    <div class="card bg-white mb-3" style="max-width: 22rem;">
+                      <div class="card-header bg-white"><h5 class="card-title text-center">Dados Pessoais</h5></div>
+                      <div class="card-body text-left">
+                        <p class="card-text">Nome: {{user.name}}</p>
+                        <p class="card-text">Sexo: Masculino</p>
+                        <p class="card-text">Data de nascimento: {{user.birth_date}}</p>
+                        <p class="card-text">Email: {{user.email}}</p>
+                        <p class="card-text">Telefone celular: {{user.phone}}</p>  
+                        
+                      </div>
+                      <div class="card-footer bg-white text-center">
+                        <a type="button" class="btn btn-dark mb-2">Editar</a>
+                      </div>
+                    </div>
+
+                    <div class="card bg-white card-info mb-3 " style="max-width: 22rem;">
+                      <div class="card-header bg-white"><h5 class="card-title text-center">Endereço</h5></div>
+                      <div class="card-body text-left">
+                        
+                        <p class="card-text">Endereço: Quadra 480 lote 10</p>
+                        <p class="card-text">Bairro: Pedregal</p>
+                        <p class="card-text">Cidade: São José do Vale do Rio Preto</p>
+                        <p class="card-text">Estado: Rio de Janeiro</p>
+                        <p class="card-text">CEP: 72860443</p>  
+                        
+                      </div>
+                      <div class="card-footer bg-white text-center">
+                        <a type="button" class="btn btn-dark mb-2">Editar</a>
+                      </div>
+                      
+                    </div>
+
+                    <div class="card bg-white card-info mb-3" style="max-width: 22rem;">
+                      <div class="card-header bg-white"><h5 class="card-title text-center">Tipo de Cadastro</h5></div>
+                      <div class="card-body text-left">
+                        
+                        <p class="card-text">Tipo de cadastro: Pessoa Física</p>
+                        <p class="card-text">CPF: 06800241156</p>
+                        
+                      </div>
+                      <div class="card-footer bg-white text-center">
+                        <a type="button" class="btn btn-dark mb-2">Editar</a>
+                      </div>
+                    </div>
+                  </div>
+                    
+                </div>
+              </div>
+        </div>
+    </div>
+        
+
+
+    
+
+  {% endblock %}
+
+

@@ -13,7 +13,7 @@ h1 {
 
 .card {
     background: #fff;
-    border: 1px solid #d4b7ac;
+    border: 1.5px solid #d4b7ac;
     border-radius: 2px;
     margin-bottom: 2rem;
     min-width: 250px;
@@ -32,7 +32,7 @@ h1 {
 }
 
 .card-img-top{
-    border: 1px solid #fbe3da; /* #fbe3da */
+    border: 1px solid #d4b7ac; /* #fbe3da */
     border-radius: 3px;
     width: 220px;
     height: 373px;
@@ -50,7 +50,7 @@ h1 {
 
 
 hr{
-    height: 0.5px;
-    background-color: #cead9a;
+    height: 2px;
+    background-color: #b56b52;
     border: none;
 }
